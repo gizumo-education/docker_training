@@ -17,7 +17,11 @@ services:
       - mysql
 
   mysql:
-    image: mysql:5.7
+    image: mysql:8.0
+    volumes:
+      - type: bind
+        source: "./mysql/my.cnf"
+        target: "/etc/mysql/conf.d/my.cnf"
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=docker_training
