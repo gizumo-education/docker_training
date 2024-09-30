@@ -1,4 +1,3 @@
-version: "3.5"
 services:
   php-apache:
     build:
@@ -15,9 +14,9 @@ services:
         target: "/var/www/app"
     depends_on:
       - mysql
-
   mysql:
     image: mysql:8.0
+    platform: linux/x86_64
     volumes:
       - type: bind
         source: "./mysql/my.cnf"
